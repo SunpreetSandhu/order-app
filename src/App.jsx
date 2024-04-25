@@ -25,6 +25,8 @@ const router = createBrowserRouter([
         path: "/menu",
         element: <Menu />,
         loader: menuLoader,
+        //this is so it can render the error with other menu logic
+        //errors bubble up to parent unless handled in route like it is here
         errorElement: <Error />,
       },
       {
