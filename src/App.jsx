@@ -5,7 +5,7 @@ import Cart from "./features/cart/Cart";
 import CreateOrder from "./features/order/CreateOrder";
 import Order from "./features/order/Order";
 import AppLayout from "./ui/AppLayout";
-
+import Error from "./ui/Error";
 /*
 imparative way to declare routes outside jsx
 old way:  <browser router> < routes> <route path = 'menu'> element = <menu/> />
@@ -14,6 +14,7 @@ nessecary to enable data fetching w react router
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
