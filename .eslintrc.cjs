@@ -1,4 +1,6 @@
 module.exports = {
+  env: { node: true },
+
   root: true,
   env: { browser: true, es2020: true },
   extends: [
