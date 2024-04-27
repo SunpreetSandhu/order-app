@@ -99,6 +99,7 @@ export async function action({ request }) {
   if (!isValidPhone(order.phone)) {
     errors.phone = "Give a correct phone number please.";
   }
+
   if (Object.keys(errors).length > 0) {
     return errors;
   }
