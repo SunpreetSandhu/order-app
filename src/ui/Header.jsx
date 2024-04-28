@@ -6,7 +6,7 @@ function Header() {
   return (
     <header
       className="px border-b border-stone-200
-     bg-teal-600 px-4 py-3 uppercase"
+     bg-teal-600 px-4 py-3 uppercase sm:px-6"
     >
       <Link to="/" className="tracking-widest">
         Perfect Pizza Order Co.
