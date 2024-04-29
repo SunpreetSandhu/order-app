@@ -10,12 +10,14 @@ function AppLayout() {
     <div className="grid h-screen grid-rows-[auto_1fr_auto]">
       {isLoading && <Loader />}
       <Header />
-      <main>
-        {/* This is to display child routes 
+      <div className="overflow-scroll">
+        <main className="mx-auto max-w-3xl">
+          {/* This is to display child routes 
         when they are navigated to like /, /menu, etc from appjsx
         */}
-        <Outlet />
-      </main>
+          <Outlet />
+        </main>
+      </div>
       <CartOverview />
     </div>
   );
