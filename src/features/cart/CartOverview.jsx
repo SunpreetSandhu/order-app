@@ -1,11 +1,9 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addItem } from './cartSlice';
+import { getTotalCartPrice } from './cartSlice';
 
 function CartOverview() {
-  const totalCartQuantity = useSelector((state) =>
-    state.cart.cart.reduce((sum, curr) => sum + curr.quantity, 0),
-  );
+  const totalCartQuantity = useSelector(getTotalCartPrice);
   return (
     <div
       className="flex items-center justify-between bg-stone-800  p-4 text-sm uppercase 
