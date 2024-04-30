@@ -33,10 +33,13 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     updateName(state, action) {
+      //can update state directly
       state.username = action.payload;
     },
   },
 });
 
+//exported to use throughout app
 export const { updateName } = userSlice.actions;
+//exported to add to root store reducer
 export default userSlice.reducer;
