@@ -22,10 +22,11 @@
 //   return { position, address };
 // }
 
+//STEP1) create userslice
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  username: 'sunpreet',
+  username: '',
 };
 
 const userSlice = createSlice({

@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import App from './App.jsx';
 import './index.css';
 import store from './store.js';
+
+//STEP3 CREATE PROVIDER AND CONNECT STORE TO IT TO GIVE APP ACCESS TO STORE
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
