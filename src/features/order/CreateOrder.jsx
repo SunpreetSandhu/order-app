@@ -38,16 +38,17 @@ const fakeCart = [
 ];
 
 function CreateOrder() {
-  const username = useSelector((state) => state.user.username);
+  const [withPriority, setWithPriority] = useState(false);
 
+  const username = useSelector((state) => state.user.username);
+  const totalCartPrice = useSelector(getTotalCartPrice);
+
+  const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
   const navigation = useNavigation();
   const isSubmitting = navigation.state === 'submitting';
   const formErrors = useActionData();
-  const [withPriority, setWithPriority] = useState(false);
   const cart = useSelector(getCart);
-  const totalCartPrice = useSelector(getTotalCartPrice);
   const totalPrice = totalCartPrice + priorityPrice;
-  const priorityPrice = 0;
   if (!cart.length) {
     return <EmptyCart />;
   }
@@ -128,7 +129,7 @@ export async function action({ request }) {
   const order = {
     ...data,
     cart: JSON.parse(data.cart),
-    priority: data.priority === 'on',
+    priority: data.priority === 'true',
   }; //data in shape we want
 
   const errors = {};
