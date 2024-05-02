@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { Form, redirect, useNavigation, useActionData } from 'react-router-dom';
 import { createOrder } from '../../services/apiRestaurant';
 import Button from '../../ui/Button';
-import { getCart } from '../cart/cartSlice';
+import { clearCart, getCart } from '../cart/cartSlice';
 import EmptyCart from '../cart/EmptyCart';
-
+import store from '../../store';
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -135,8 +135,11 @@ export async function action({ request }) {
   }
 
   //if everything is ok create new order and redirect
+
   const newOrder = await createOrder(order);
 
+  //doing it this way since were not in component
+  store.dispatch(clearCart());
   //cant use navigate since we not in component
   return redirect(`/order/${newOrder.id}`);
 }
