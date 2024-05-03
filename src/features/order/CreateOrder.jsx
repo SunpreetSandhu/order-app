@@ -96,6 +96,7 @@ function CreateOrder() {
               type="text"
               name="address"
               disabled={isLoadingAddress}
+              defaultValue={address}
               required
             />
           </div>
